@@ -19,7 +19,7 @@ import gebulot.pmdmlib.PushNotificationAdmin.GcmBroadcastReceiver;
  * Created by Yony on 07/02/16.
  */
 public class MiIntentService extends IntentService {
-
+    public GoogleCloudMessaging googleCloudMessaging;
     public static final String GCM_INTENT_SERVICE = "GcmIntentService";
     public static final String GCM_SEND_ERROR = "Send error: ";
     public static final String GCM_DELETED_MESSAGE = "Deleted messages on server: ";
@@ -41,7 +41,7 @@ public class MiIntentService extends IntentService {
         Log.i(TAG, "new push");
 
         Bundle extras = intent.getExtras();
-        GoogleCloudMessaging googleCloudMessaging = GoogleCloudMessaging.getInstance(this);
+        googleCloudMessaging = GoogleCloudMessaging.getInstance(this);
         // The getMessageType() intent parameter must be the intent you received
         // in your BroadcastReceiver.
         String messageType = googleCloudMessaging.getMessageType(intent);
